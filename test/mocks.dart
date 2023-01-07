@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,34 +19,28 @@
 import 'dart:math';
 
 import 'package:drift/drift.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:flauncher/database.dart';
-import 'package:flauncher/flauncher_channel.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/unsplash_service.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/alauncher_channel.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/unsplash_service.dart';
 import 'package:mockito/annotations.dart';
 
 @GenerateMocks([
-  FLauncherChannel,
+  aLauncherChannel,
   WallpaperService,
   AppsService,
   SettingsService,
-  FirebaseCrashlytics,
-  FirebaseAnalytics,
-  FirebaseRemoteConfig,
   UnsplashService,
 ], customMocks: [
-  MockSpec<FLauncherDatabase>(unsupportedMembers: {#alias}),
+  MockSpec<aLauncherDatabase>(unsupportedMembers: {#alias}),
 ])
 void main() {}
 
 App fakeApp({
-  String packageName = "me.efesser.flauncher",
-  String name = "FLauncher",
+  String packageName = "com.aboutblank.alauncher",
+  String name = "aLauncher",
   String version = "1.0.0",
   Uint8List? banner,
   Uint8List? icon,

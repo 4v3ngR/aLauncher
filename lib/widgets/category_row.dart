@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/widgets/app_card.dart';
-import 'package:flauncher/widgets/ensure_visible.dart';
-import 'package:flauncher/widgets/settings/categories_panel_page.dart';
-import 'package:flauncher/widgets/settings/settings_panel.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/widgets/app_card.dart';
+import 'package:alauncher/widgets/ensure_visible.dart';
+import 'package:alauncher/widgets/settings/categories_panel_page.dart';
+import 'package:alauncher/widgets/settings/settings_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +41,7 @@ class CategoryRow extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(left: 16, bottom: 8),
-            child: Text(category.name,
+            child: Text(category.name.startsWith("_") ? "" : category.name,
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
@@ -80,7 +80,11 @@ class CategoryRow extends StatelessWidget {
   int _findChildIndex(Key key) =>
       applications.indexWhere((app) => "${category.id}-${app.packageName}" == (key as ValueKey<String>).value);
 
-  Widget _emptyState(BuildContext context) => SizedBox(
+  Widget _emptyState(BuildContext context) => category.name.startsWith("_") ?
+      SizedBox(
+        height: category.rowHeight.toDouble(),
+      ) :
+      SizedBox(
         height: 110,
         child: EnsureVisible(
           alignment: 0.1,

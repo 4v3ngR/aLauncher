@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/widgets/application_info_panel.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/widgets/application_info_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -41,8 +41,8 @@ void main() {
   testWidgets("'Open' calls launchApp on AppsService", (tester) async {
     final appsService = MockAppsService();
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -60,8 +60,8 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -83,8 +83,8 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -107,8 +107,8 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -132,8 +132,8 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,

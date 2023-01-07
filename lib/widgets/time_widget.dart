@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 
 import 'dart:async';
 
-import 'package:flauncher/providers/settings_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';

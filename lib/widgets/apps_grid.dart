@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,12 +18,12 @@
 
 import 'dart:math';
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/widgets/app_card.dart';
-import 'package:flauncher/widgets/ensure_visible.dart';
-import 'package:flauncher/widgets/settings/categories_panel_page.dart';
-import 'package:flauncher/widgets/settings/settings_panel.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/widgets/app_card.dart';
+import 'package:alauncher/widgets/ensure_visible.dart';
+import 'package:alauncher/widgets/settings/categories_panel_page.dart';
+import 'package:alauncher/widgets/settings/settings_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

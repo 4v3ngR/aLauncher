@@ -866,9 +866,9 @@ class $AppsCategoriesTable extends AppsCategories with TableInfo<$AppsCategories
   }
 }
 
-abstract class _$FLauncherDatabase extends GeneratedDatabase {
-  _$FLauncherDatabase(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
-  _$FLauncherDatabase.connect(DatabaseConnection c) : super.connect(c);
+abstract class _$aLauncherDatabase extends GeneratedDatabase {
+  _$aLauncherDatabase(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
+  _$aLauncherDatabase.connect(DatabaseConnection c) : super.connect(c);
   late final $AppsTable apps = $AppsTable(this);
   late final $CategoriesTable categories = $CategoriesTable(this);
   late final $AppsCategoriesTable appsCategories = $AppsCategoriesTable(this);

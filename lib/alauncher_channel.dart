@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,9 +20,9 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-class FLauncherChannel {
-  static const _methodChannel = MethodChannel('me.efesser.flauncher/method');
-  static const _eventChannel = EventChannel('me.efesser.flauncher/event');
+class aLauncherChannel {
+  static const _methodChannel = MethodChannel('com.aboutblank.alauncher/method');
+  static const _eventChannel = EventChannel('com.aboutblank.alauncher/event');
 
   Future<List<dynamic>> getApplications() async => (await _methodChannel.invokeListMethod('getApplications'))!;
 

@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/flauncher_channel.dart';
+import 'package:alauncher/alauncher_channel.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -26,26 +26,26 @@ void main() {
   });
 
   test("getApplications", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "getApplications") {
         return [
-          {'packageName': 'me.efesser.flauncher'}
+          {'packageName': 'com.aboutblank.alauncher'}
         ];
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
     final apps = await fLauncherChannel.getApplications();
 
     expect(apps, [
-      {'packageName': 'me.efesser.flauncher'}
+      {'packageName': 'com.aboutblank.alauncher'}
     ]);
   });
 
   test("launchApp", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "launchApp") {
@@ -54,15 +54,15 @@ void main() {
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.launchApp("me.efesser.flauncher");
+    await fLauncherChannel.launchApp("com.aboutblank.alauncher");
 
-    expect(packageName, "me.efesser.flauncher");
+    expect(packageName, "com.aboutblank.alauncher");
   });
 
   test("openSettings", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     bool called = false;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "openSettings") {
@@ -71,7 +71,7 @@ void main() {
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
     await fLauncherChannel.openSettings();
 
@@ -79,7 +79,7 @@ void main() {
   });
 
   test("openAppInfo", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "openAppInfo") {
@@ -88,15 +88,15 @@ void main() {
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.openAppInfo("me.efesser.flauncher");
+    await fLauncherChannel.openAppInfo("com.aboutblank.alauncher");
 
-    expect(packageName, "me.efesser.flauncher");
+    expect(packageName, "com.aboutblank.alauncher");
   });
 
   test("uninstallApp", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "uninstallApp") {
@@ -105,22 +105,22 @@ void main() {
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.uninstallApp("me.efesser.flauncher");
+    await fLauncherChannel.uninstallApp("com.aboutblank.alauncher");
 
-    expect(packageName, "me.efesser.flauncher");
+    expect(packageName, "com.aboutblank.alauncher");
   });
 
   test("isDefaultLauncher", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "isDefaultLauncher") {
         return true;
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
     final isDefaultLauncher = await fLauncherChannel.isDefaultLauncher();
 
@@ -128,14 +128,14 @@ void main() {
   });
 
   test("checkForGetContentAvailability", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "checkForGetContentAvailability") {
         return true;
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
     final getContentAvailable = await fLauncherChannel.checkForGetContentAvailability();
 
@@ -143,7 +143,7 @@ void main() {
   });
 
   test("startAmbientMode", () async {
-    final channel = MethodChannel('me.efesser.flauncher/method');
+    final channel = MethodChannel('com.aboutblank.alauncher/method');
     bool called = false;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "startAmbientMode") {
@@ -152,7 +152,7 @@ void main() {
       }
       fail("Unhandled method name");
     });
-    final fLauncherChannel = FLauncherChannel();
+    final fLauncherChannel = aLauncherChannel();
 
     await fLauncherChannel.startAmbientMode();
 

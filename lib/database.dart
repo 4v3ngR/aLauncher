@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -92,12 +92,12 @@ enum CategoryType {
 }
 
 @DriftDatabase(tables: [Apps, Categories, AppsCategories])
-class FLauncherDatabase extends _$FLauncherDatabase {
+class aLauncherDatabase extends _$aLauncherDatabase {
   late final bool wasCreated;
 
-  FLauncherDatabase.connect(DatabaseConnection databaseConnection) : super.connect(databaseConnection);
+  aLauncherDatabase.connect(DatabaseConnection databaseConnection) : super.connect(databaseConnection);
 
-  FLauncherDatabase.inMemory() : super(LazyDatabase(() => NativeDatabase.memory()));
+  aLauncherDatabase.inMemory() : super(LazyDatabase(() => NativeDatabase.memory()));
 
   @override
   int get schemaVersion => 5;

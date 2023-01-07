@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/widgets/settings/applications_panel_page.dart';
-import 'package:flauncher/widgets/settings/categories_panel_page.dart';
-import 'package:flauncher/widgets/settings/flauncher_about_dialog.dart';
-import 'package:flauncher/widgets/settings/wallpaper_panel_page.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/widgets/settings/applications_panel_page.dart';
+import 'package:alauncher/widgets/settings/categories_panel_page.dart';
+import 'package:alauncher/widgets/settings/alauncher_about_dialog.dart';
+import 'package:alauncher/widgets/settings/wallpaper_panel_page.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
@@ -84,31 +84,13 @@ class SettingsPanelPage extends StatelessWidget {
               title: Text("Use 24-hour time format"),
               dense: true,
             ),
-            Divider(),
-            SwitchListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 8),
-              value: settingsService.crashReportsEnabled,
-              onChanged: (value) => settingsService.setCrashReportsEnabled(value),
-              title: Text("Crash Reporting"),
-              dense: true,
-              subtitle: Text("Automatically send crash reports through Firebase Crashlytics."),
-            ),
-            Divider(),
-            SwitchListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 8),
-              value: settingsService.analyticsEnabled,
-              onChanged: (value) => settingsService.setAnalyticsEnabled(value),
-              title: Text("Analytics Reporting"),
-              dense: true,
-              subtitle: Text("Share analytics data through Firebase Analytics."),
-            ),
             Spacer(),
             TextButton(
               child: Row(
                 children: [
                   Icon(Icons.info_outline),
                   Container(width: 8),
-                  Text("About FLauncher", style: Theme.of(context).textTheme.bodyText2),
+                  Text("About aLauncher", style: Theme.of(context).textTheme.bodyText2),
                 ],
               ),
               onPressed: () => showDialog(
@@ -116,7 +98,7 @@ class SettingsPanelPage extends StatelessWidget {
                 builder: (_) => FutureBuilder<PackageInfo>(
                   future: PackageInfo.fromPlatform(),
                   builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done
-                      ? FLauncherAboutDialog(packageInfo: snapshot.data!)
+                      ? aLauncherAboutDialog(packageInfo: snapshot.data!)
                       : Container(),
                 ),
               ),

@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,10 +18,10 @@
 
 import 'dart:convert';
 
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/widgets/settings/gradient_panel_page.dart';
-import 'package:flauncher/widgets/settings/unsplash_panel_page.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/widgets/settings/gradient_panel_page.dart';
+import 'package:alauncher/widgets/settings/unsplash_panel_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';

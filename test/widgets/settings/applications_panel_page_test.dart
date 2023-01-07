@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/widgets/add_to_category_dialog.dart';
-import 'package:flauncher/widgets/application_info_panel.dart';
-import 'package:flauncher/widgets/settings/applications_panel_page.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/widgets/add_to_category_dialog.dart';
+import 'package:alauncher/widgets/application_info_panel.dart';
+import 'package:alauncher/widgets/settings/applications_panel_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -44,8 +44,8 @@ void main() {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "me.efesser.flauncher",
-        name: "FLauncher",
+        packageName: "com.aboutblank.alauncher",
+        name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: false,
         hidden: false,
@@ -55,15 +55,15 @@ void main() {
     await _pumpWidgetWithProviders(tester, appsService);
 
     expect(find.text("TV Applications"), findsOneWidget);
-    expect(find.text("FLauncher"), findsOneWidget);
+    expect(find.text("aLauncher"), findsOneWidget);
   });
 
   testWidgets("Non-TV Applications shows Non-TV apps", (tester) async {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "me.efesser.flauncher",
-        name: "FLauncher",
+        packageName: "com.aboutblank.alauncher",
+        name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: true,
         hidden: false,
@@ -78,15 +78,15 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text("Non-TV Applications"), findsOneWidget);
-    expect(find.text("FLauncher"), findsOneWidget);
+    expect(find.text("aLauncher"), findsOneWidget);
   });
 
   testWidgets("Hidden Applications shows hidden apps", (tester) async {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "me.efesser.flauncher",
-        name: "FLauncher",
+        packageName: "com.aboutblank.alauncher",
+        name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: false,
         hidden: true,
@@ -102,14 +102,14 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text("Hidden Applications"), findsOneWidget);
-    expect(find.text("FLauncher"), findsOneWidget);
+    expect(find.text("aLauncher"), findsOneWidget);
   });
 
   testWidgets("'Add' opens AddToCategoryDialog", (tester) async {
     final appsService = MockAppsService();
     final application = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -129,8 +129,8 @@ void main() {
   testWidgets("'Info' opens ApplicationInfoPanel", (tester) async {
     final appsService = MockAppsService();
     final application = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,

@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,12 +19,12 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/ticker_model.dart';
-import 'package:flauncher/widgets/application_info_panel.dart';
-import 'package:flauncher/widgets/color_helpers.dart';
-import 'package:flauncher/widgets/focus_keyboard_listener.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/ticker_model.dart';
+import 'package:alauncher/widgets/application_info_panel.dart';
+import 'package:alauncher/widgets/color_helpers.dart';
+import 'package:alauncher/widgets/focus_keyboard_listener.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -150,6 +150,7 @@ class _AppCardState extends State<AppCard> with SingleTickerProviderStateMixin {
                               ),
                       ),
                       if (_moving) ..._arrows(),
+/*
                       IgnorePointer(
                         child: AnimatedOpacity(
                           duration: Duration(milliseconds: 200),
@@ -172,6 +173,7 @@ class _AppCardState extends State<AppCard> with SingleTickerProviderStateMixin {
                           ),
                         ),
                       ),
+*/
                     ],
                   ),
                 ),

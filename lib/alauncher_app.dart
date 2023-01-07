@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:flauncher/actions.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/providers/ticker_model.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/unsplash_service.dart';
+import 'package:alauncher/actions.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/providers/ticker_model.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/unsplash_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,18 +29,15 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'database.dart';
-import 'flauncher.dart';
-import 'flauncher_channel.dart';
+import 'alauncher.dart';
+import 'alauncher_channel.dart';
 
-class FLauncherApp extends StatelessWidget {
+class aLauncherApp extends StatelessWidget {
   final SharedPreferences _sharedPreferences;
-  final FirebaseCrashlytics _firebaseCrashlytics;
-  final FirebaseAnalytics _firebaseAnalytics;
   final ImagePicker _imagePicker;
-  final FLauncherChannel _fLauncherChannel;
-  final FLauncherDatabase _fLauncherDatabase;
+  final aLauncherChannel _fLauncherChannel;
+  final aLauncherDatabase _fLauncherDatabase;
   final UnsplashService _unsplashService;
-  final FirebaseRemoteConfig _firebaseRemoteConfig;
 
   static const MaterialColor _swatch = MaterialColor(0xFF011526, <int, Color>{
     50: Color(0xFF36A0FA),
@@ -58,15 +52,12 @@ class FLauncherApp extends StatelessWidget {
     900: Color(0xFF000000),
   });
 
-  FLauncherApp(
+  aLauncherApp(
     this._sharedPreferences,
-    this._firebaseCrashlytics,
-    this._firebaseAnalytics,
     this._imagePicker,
     this._fLauncherChannel,
     this._fLauncherDatabase,
     this._unsplashService,
-    this._firebaseRemoteConfig,
   );
 
   @override
@@ -74,7 +65,7 @@ class FLauncherApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
               create: (_) =>
-                  SettingsService(_sharedPreferences, _firebaseCrashlytics, _firebaseAnalytics, _firebaseRemoteConfig),
+                  SettingsService(_sharedPreferences),
               lazy: false),
           ChangeNotifierProvider(create: (_) => AppsService(_fLauncherChannel, _fLauncherDatabase)),
           ChangeNotifierProxyProvider<SettingsService, WallpaperService>(
@@ -95,7 +86,7 @@ class FLauncherApp extends StatelessWidget {
             ...WidgetsApp.defaultActions,
             DirectionalFocusIntent: SoundFeedbackDirectionalFocusAction(context),
           },
-          title: 'FLauncher',
+          title: 'aLauncher',
           theme: ThemeData(
             brightness: Brightness.dark,
             primarySwatch: _swatch,
@@ -129,7 +120,7 @@ class FLauncherApp extends StatelessWidget {
                 }
                 return shouldPop;
               },
-              child: Actions(actions: {BackIntent: BackAction(context, systemNavigator: true)}, child: FLauncher()),
+              child: Actions(actions: {BackIntent: BackAction(context, systemNavigator: true)}, child: aLauncher()),
             ),
           ),
         ),

@@ -11,7 +11,7 @@ targets:
         enabled: false
 
   run_built_value:
-    dependencies: [ 'flauncher' ]
+    dependencies: [ 'alauncher' ]
     builders:
       drift_dev:
         enabled: false

@@ -1,11 +1,8 @@
-# FLauncher
-FLauncher is an open-source alternative launcher for Android TV, built with [Flutter](https://flutter.dev).
-
+# aLauncher
+aLauncher is an open-source alternative launcher for Android TV, built with [Flutter](https://flutter.dev).
 The project is still at an early development stage and may be unstable. It currently lacks testing on real devices and has only been tested on Chromecast with Google TV.
 
-<a href="https://play.google.com/store/apps/details?id=me.efesser.flauncher">
- <img alt="Get it on Google Play" width="200" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"/>
-</a>
+This repo is a fork of https://gitlab.com/flauncher/flauncher
 
 ## Features
 - [x] No ads
@@ -18,18 +15,16 @@ The project is still at an early development stage and may be unstable. It curre
 - [x] Clock
 - [x] Switch between row and grid for categories
 - [x] Support for non-TV (sideloaded) apps
-- [x] Navigation sound feedback
-- [ ] Force stop app
 
 ## Screenshots
 |  |  |  |
 |--|--|--|
 | ![](screenshots/Screenshot_1624378896.png) | ![](screenshots/Screenshot_1624378921.png) | ![](screenshots/Screenshot_1624378938.png) |
 
-## Set FLauncher as default launcher
+## Set aLauncher as default launcher
 
 ### Method 1: remap the Home button
-This is the "safer" and easiest way. Use [Button Mapper](https://play.google.com/store/apps/details?id=flar2.homebutton) to remap the Home button of the remote to launch FLauncher.
+This is the "safer" and easiest way. Use [Button Mapper](https://play.google.com/store/apps/details?id=flar2.homebutton) to remap the Home button of the remote to launch aLauncher.
 
 ### Method 2: disable the default launcher
 **:warning: Disclaimer :warning:**
@@ -59,8 +54,6 @@ $ adb shell pm enable com.google.android.tungsten.setupwraith
 On Chromecast with Google TV (maybe others), the "YouTube" remote button will stop working if the default launcher is disabled. As a workaround, you can use [Button Mapper](https://play.google.com/store/apps/details?id=flar2.homebutton) to remap it correctly.
 
 ## Wallpaper
-Because Android's `WallpaperManager` is not available on some Android TV devices, FLauncher implements its own wallpaper management method.
+Because Android's `WallpaperManager` is not available on some Android TV devices, aLauncher implements its own wallpaper management method.
 
 Please note that changing wallpaper requires a file explorer to be installed on the device in order to pick a file.
-
-<a href="https://www.buymeacoffee.com/etienn01" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>

@@ -1,4 +1,4 @@
-import 'package:flauncher/widgets/color_helpers.dart';
+import 'package:alauncher/widgets/color_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

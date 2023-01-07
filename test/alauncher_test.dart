@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,17 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/database.dart';
-import 'package:flauncher/flauncher.dart';
-import 'package:flauncher/gradients.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/providers/ticker_model.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/widgets/application_info_panel.dart';
-import 'package:flauncher/widgets/apps_grid.dart';
-import 'package:flauncher/widgets/category_row.dart';
-import 'package:flauncher/widgets/settings/settings_panel_page.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/alauncher.dart';
+import 'package:alauncher/gradients.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/providers/ticker_model.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/widgets/application_info_panel.dart';
+import 'package:alauncher/widgets/apps_grid.dart';
+import 'package:alauncher/widgets/category_row.dart';
+import 'package:alauncher/widgets/settings/settings_panel_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -53,14 +53,14 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     final favoritesCategory = fakeCategory(name: "Favorites", order: 0, type: CategoryType.row);
     final applicationsCategory = fakeCategory(name: "Applications", order: 1);
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(favoritesCategory, [
         fakeApp(
-          packageName: "me.efesser.flauncher.1",
-          name: "FLauncher 1",
+          packageName: "com.aboutblank.alauncher.1",
+          name: "aLauncher 1",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: null,
@@ -68,8 +68,8 @@ void main() {
       ]),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "me.efesser.flauncher.2",
-          name: "FLauncher 2",
+          packageName: "com.aboutblank.alauncher.2",
+          name: "aLauncher 2",
           version: "2.0.0",
           banner: kTransparentImage,
           icon: null,
@@ -83,9 +83,9 @@ void main() {
     expect(find.text("Applications"), findsOneWidget);
     expect(find.text("Favorites"), findsOneWidget);
     expect(find.byType(AppsGrid), findsOneWidget);
-    expect(find.byKey(Key("${applicationsCategory.id}-me.efesser.flauncher.2")), findsOneWidget);
+    expect(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher.2")), findsOneWidget);
     expect(find.byType(CategoryRow), findsOneWidget);
-    expect(find.byKey(Key("${favoritesCategory.id}-me.efesser.flauncher.1")), findsOneWidget);
+    expect(find.byKey(Key("${favoritesCategory.id}-com.aboutblank.alauncher.1")), findsOneWidget);
     expect(tester.widget(find.byKey(Key("background"))), isA<Container>());
   });
 
@@ -95,7 +95,7 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     final applicationsCategory = fakeCategory(name: "Applications", order: 0, type: CategoryType.grid);
     final favoritesCategory = fakeCategory(name: "Favorites", order: 1, type: CategoryType.row);
     when(appsService.categoriesWithApps).thenReturn([
@@ -120,7 +120,7 @@ void main() {
     when(appsService.initialized).thenReturn(true);
     when(appsService.categoriesWithApps).thenReturn([]);
     when(wallpaperService.wallpaperBytes).thenReturn(kTransparentImage);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
 
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
@@ -135,7 +135,7 @@ void main() {
     when(appsService.initialized).thenReturn(true);
     when(appsService.categoriesWithApps).thenReturn([]);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
 
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
@@ -149,7 +149,7 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(fakeCategory(name: "Applications", order: 1), []),
@@ -174,11 +174,11 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
     final app = fakeApp(
-      packageName: "me.efesser.flauncher",
-      name: "FLauncher",
+      packageName: "com.aboutblank.alauncher",
+      name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
       icon: kTransparentImage,
@@ -201,15 +201,15 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
     final applicationsCategory = fakeCategory(name: "Applications", order: 1);
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "me.efesser.flauncher",
-          name: "FLauncher",
+          packageName: "com.aboutblank.alauncher",
+          name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
@@ -218,7 +218,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-me.efesser.flauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
     await tester.pump();
 
     expect(find.byType(ApplicationInfoPanel), findsOneWidget);
@@ -230,22 +230,22 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
     final applicationsCategory = fakeCategory(name: "Applications", order: 1, type: CategoryType.grid);
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "me.efesser.flauncher",
-          name: "FLauncher",
+          packageName: "com.aboutblank.alauncher",
+          name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
         ),
         fakeApp(
-          packageName: "me.efesser.flauncher.2",
-          name: "FLauncher 2",
+          packageName: "com.aboutblank.alauncher.2",
+          name: "aLauncher 2",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
@@ -254,7 +254,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-me.efesser.flauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
@@ -274,22 +274,22 @@ void main() {
     final settingsService = MockSettingsService();
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
     final applicationsCategory = fakeCategory(name: "Applications", order: 1, type: CategoryType.row);
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "me.efesser.flauncher",
-          name: "FLauncher",
+          packageName: "com.aboutblank.alauncher",
+          name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
         ),
         fakeApp(
-          packageName: "me.efesser.flauncher.2",
-          name: "FLauncher 2",
+          packageName: "com.aboutblank.alauncher.2",
+          name: "aLauncher 2",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
@@ -298,7 +298,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-me.efesser.flauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
@@ -320,7 +320,7 @@ void main() {
 
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
 
     /*
@@ -431,7 +431,7 @@ void main() {
 
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
 
     /*
@@ -554,7 +554,7 @@ void main() {
 
     when(appsService.initialized).thenReturn(true);
     when(wallpaperService.wallpaperBytes).thenReturn(null);
-    when(wallpaperService.gradient).thenReturn(FLauncherGradients.greatWhale);
+    when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
 
     /*
@@ -652,7 +652,7 @@ Future<void> _pumpWidgetWithProviders(
         Provider<TickerModel>(create: (_) => TickerModel(tester))
       ],
       builder: (_, __) => MaterialApp(
-        home: FLauncher(),
+        home: aLauncher(),
       ),
     ),
   );

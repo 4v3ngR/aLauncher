@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -55,7 +55,7 @@ class UnsplashService {
   }
 
   Photo _buildPhoto(unsplash.Photo photo) => Photo(photo.id, photo.user.name, photo.urls.small, photo.urls.raw,
-      photo.user.links.html.replace(queryParameters: {"utm_source": "flauncher", "utm_medium": "referral"}));
+      photo.user.links.html.replace(queryParameters: {"utm_source": "alauncher", "utm_medium": "referral"}));
 }
 
 class Photo {

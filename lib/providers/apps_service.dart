@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,15 +20,15 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:drift/drift.dart';
-import 'package:flauncher/database.dart';
-import 'package:flauncher/flauncher_channel.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/alauncher_channel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' hide Category;
 import 'package:flutter/material.dart';
 
 class AppsService extends ChangeNotifier {
-  final FLauncherChannel _fLauncherChannel;
-  final FLauncherDatabase _database;
+  final aLauncherChannel _fLauncherChannel;
+  final aLauncherDatabase _database;
   bool _initialized = false;
 
   List<App> _applications = [];

@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,10 +19,10 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class FLauncherAboutDialog extends StatelessWidget {
+class aLauncherAboutDialog extends StatelessWidget {
   final PackageInfo packageInfo;
 
-  FLauncherAboutDialog({
+  aLauncherAboutDialog({
     Key? key,
     required this.packageInfo,
   }) : super(key: key);
@@ -35,7 +35,7 @@ class FLauncherAboutDialog extends StatelessWidget {
       applicationName: packageInfo.appName,
       applicationVersion: "${packageInfo.version} (${packageInfo.buildNumber})",
       applicationIcon: Image.asset("assets/logo.png", height: 72),
-      applicationLegalese: "© 2021 Étienne Fesser",
+      applicationLegalese: "© 2022 4v3ngR",
       children: [
         SizedBox(height: 24),
         RichText(
@@ -43,17 +43,13 @@ class FLauncherAboutDialog extends StatelessWidget {
             style: textStyle,
             children: [
               TextSpan(
-                text: "FLauncher is an open-source alternative launcher for Android TV.\n"
+                text: "aLauncher is an open-source alternative launcher for Android TV.\n"
                     "Source code available at ",
               ),
-              TextSpan(text: "https://gitlab.com/etiennf01/flauncher", style: underlined),
+              TextSpan(text: "https://github.com/4v3ngR/aLauncher", style: underlined),
               TextSpan(text: ".\n\n"),
-              TextSpan(text: "Logo by Katie "),
-              TextSpan(text: "@fureturoe", style: underlined),
-              TextSpan(text: ", "),
-              TextSpan(text: "design by "),
-              TextSpan(text: "@FXCostanzo", style: underlined),
-              TextSpan(text: "."),
+              TextSpan(text: "Forked from https://gitlab.com/flauncher/flauncher © 2021 Étienne Fesser\n\n"),
+              TextSpan(text: "Huge thanks to Étienne Fesser for open sourcing his launcher."),
             ],
           ),
         )

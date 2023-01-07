@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/gradients.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/widgets/ensure_visible.dart';
+import 'package:alauncher/gradients.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/widgets/ensure_visible.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +36,7 @@ class GradientPanelPage extends StatelessWidget {
               childAspectRatio: 4 / 3,
               mainAxisSpacing: 8,
               crossAxisSpacing: 8,
-              children: FLauncherGradients.all
+              children: aLauncherGradients.all
                   .map((gradient) => EnsureVisible(alignment: 0.5, child: _gradientCard(gradient)))
                   .toList(),
             ),
@@ -44,7 +44,7 @@ class GradientPanelPage extends StatelessWidget {
         ],
       );
 
-  Widget _gradientCard(FLauncherGradient fLauncherGradient) => Focus(
+  Widget _gradientCard(aLauncherGradient fLauncherGradient) => Focus(
         key: Key("gradient-${fLauncherGradient.uuid}"),
         canRequestFocus: false,
         child: Builder(
@@ -56,7 +56,7 @@ class GradientPanelPage extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   shape: _cardBorder(Focus.of(context).hasFocus),
                   child: InkWell(
-                    autofocus: fLauncherGradient == FLauncherGradients.greatWhale,
+                    autofocus: fLauncherGradient == aLauncherGradients.greatWhale,
                     onTap: () => context.read<WallpaperService>().setGradient(fLauncherGradient),
                     child: Container(decoration: BoxDecoration(gradient: fLauncherGradient.gradient)),
                   ),

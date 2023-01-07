@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package me.efesser.flauncher
+package com.aboutblank.alauncher
 
 import android.content.Intent
 import android.content.Intent.*
@@ -38,8 +38,8 @@ import io.flutter.plugin.common.MethodChannel
 import java.io.ByteArrayOutputStream
 import java.io.Serializable
 
-private const val METHOD_CHANNEL = "me.efesser.flauncher/method"
-private const val EVENT_CHANNEL = "me.efesser.flauncher/event"
+private const val METHOD_CHANNEL = "com.aboutblank.alauncher/method"
+private const val EVENT_CHANNEL = "com.aboutblank.alauncher/event"
 
 class MainActivity : FlutterActivity() {
     val launcherAppsCallbacks = ArrayList<LauncherApps.Callback>()

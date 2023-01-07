@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/settings_service.dart';
-import 'package:flauncher/widgets/settings/applications_panel_page.dart';
-import 'package:flauncher/widgets/settings/categories_panel_page.dart';
-import 'package:flauncher/widgets/settings/flauncher_about_dialog.dart';
-import 'package:flauncher/widgets/settings/settings_panel_page.dart';
-import 'package:flauncher/widgets/settings/wallpaper_panel_page.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/settings_service.dart';
+import 'package:alauncher/widgets/settings/applications_panel_page.dart';
+import 'package:alauncher/widgets/settings/categories_panel_page.dart';
+import 'package:alauncher/widgets/settings/alauncher_about_dialog.dart';
+import 'package:alauncher/widgets/settings/settings_panel_page.dart';
+import 'package:alauncher/widgets/settings/wallpaper_panel_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -183,7 +183,7 @@ void main() {
     verify(settingsService.setAnalyticsEnabled(true));
   });
 
-  testWidgets("'About FLauncher' opens about dialog", (tester) async {
+  testWidgets("'About aLauncher' opens about dialog", (tester) async {
     final settingsService = MockSettingsService();
     final appsService = MockAppsService();
     when(appsService.categoriesWithApps).thenReturn([]);
@@ -205,7 +205,7 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
-    expect(find.byType(FLauncherAboutDialog), findsOneWidget);
+    expect(find.byType(aLauncherAboutDialog), findsOneWidget);
   });
 }
 
@@ -236,8 +236,8 @@ Future<void> _pumpWidgetWithProviders(
 class _MockPackageInfoPlatform with MockPlatformInterfaceMixin implements PackageInfoPlatform {
   @override
   Future<PackageInfoData> getAll() async => PackageInfoData(
-        appName: "FLauncher",
-        packageName: "me.efesser.flauncher",
+        appName: "aLauncher",
+        packageName: "com.aboutblank.alauncher",
         version: "1.0.0",
         buildNumber: "1",
         buildSignature: "",

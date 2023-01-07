@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,18 +19,18 @@
 import 'dart:typed_data';
 import 'dart:ui';
 
-import 'package:flauncher/custom_traversal_policy.dart';
-import 'package:flauncher/database.dart';
-import 'package:flauncher/providers/apps_service.dart';
-import 'package:flauncher/providers/wallpaper_service.dart';
-import 'package:flauncher/widgets/apps_grid.dart';
-import 'package:flauncher/widgets/category_row.dart';
-import 'package:flauncher/widgets/settings/settings_panel.dart';
-import 'package:flauncher/widgets/time_widget.dart';
+import 'package:alauncher/custom_traversal_policy.dart';
+import 'package:alauncher/database.dart';
+import 'package:alauncher/providers/apps_service.dart';
+import 'package:alauncher/providers/wallpaper_service.dart';
+import 'package:alauncher/widgets/apps_grid.dart';
+import 'package:alauncher/widgets/category_row.dart';
+import 'package:alauncher/widgets/settings/settings_panel.dart';
+import 'package:alauncher/widgets/time_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FLauncher extends StatelessWidget {
+class aLauncher extends StatelessWidget {
   @override
   Widget build(BuildContext context) => FocusTraversalGroup(
         policy: RowByRowTraversalPolicy(),

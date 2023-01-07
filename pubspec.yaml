@@ -1,4 +1,4 @@
-name: flauncher
+name: alauncher
 description: Flutter-based Android TV launcher.
 
 version: 0.0.1
@@ -11,10 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_analytics: ^9.1.9
-  firebase_core: ^1.17.1
-  firebase_crashlytics: ^2.8.1
-  firebase_remote_config: ^2.0.8
   image_picker: ^0.8.5+3
   intl: ^0.17.0
   drift: ^1.6.0

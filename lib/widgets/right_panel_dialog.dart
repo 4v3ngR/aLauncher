@@ -1,5 +1,5 @@
 /*
- * FLauncher
+ * aLauncher
  * Copyright (C) 2021  Étienne Fesser
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import 'package:flauncher/actions.dart';
+import 'package:alauncher/actions.dart';
 import 'package:flutter/material.dart';
 
 class RightPanelDialog extends StatelessWidget {
