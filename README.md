@@ -15,6 +15,8 @@ This repo is a fork of https://gitlab.com/flauncher/flauncher
 - [x] Clock
 - [x] Switch between row and grid for categories
 - [x] Support for non-TV (sideloaded) apps
+- [x] Hidden category names (prefix the name with underscore `_`)
+- [x] No empty card (for rows) if the category name is hidden
 
 ## Screenshots
 |  |  |  |
