@@ -39,14 +39,14 @@ class aLauncherApp extends StatelessWidget {
   final aLauncherDatabase _fLauncherDatabase;
   final UnsplashService _unsplashService;
 
-  static const MaterialColor _swatch = MaterialColor(0xFF011526, <int, Color>{
-    50: Color(0xFF36A0FA),
-    100: Color(0xFF067BDE),
-    200: Color(0xFF045CA7),
-    300: Color(0xFF033662),
-    400: Color(0xFF022544),
-    500: Color(0xFF011526),
-    600: Color(0xFF000508),
+  static const MaterialColor _swatch = MaterialColor(0xFF1F1F1F, <int, Color>{
+    50: Color(0xFFF7F7F7),
+    100: Color(0xFFDEDEDE),
+    200: Color(0xFFF7F7F7),
+    300: Color(0xFF606060),
+    400: Color(0xFF444444),
+    500: Color(0xFF262626),
+    600: Color(0xFF080808),
     700: Color(0xFF000000),
     800: Color(0xFF000000),
     900: Color(0xFF000000),
