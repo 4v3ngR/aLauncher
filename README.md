@@ -4,6 +4,12 @@ The project is still at an early development stage and may be unstable. It curre
 
 This repo is a fork of https://gitlab.com/flauncher/flauncher
 
+## Changes from flauncher
+- [x] No firebase
+- [x] no usplash support
+- [x] ability to create a fully empty category (and use it as a spacer)
+- [ ] improve the vertical scrolling when an empty row is top most
+
 ## Features
 - [x] No ads
 - [x] Customizable categories
@@ -15,8 +21,9 @@ This repo is a fork of https://gitlab.com/flauncher/flauncher
 - [x] Clock
 - [x] Switch between row and grid for categories
 - [x] Support for non-TV (sideloaded) apps
-- [x] Hidden category names (prefix the name with underscore `_`)
+- [x] Hidden category names for row types (prefix the name with underscore `_`)
 - [x] No empty card (for rows) if the category name is hidden
+- [x] Empty rows honour the hight specified in the config
 
 ## Screenshots
 |  |  |  |
