@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      drift_dev:
+        enabled: false
+      drift_dev|not_shared:
+        enabled: true
+        options:
+          generate_connect_constructor: true
+      mockito|mockBuilder:
+        enabled: false
+
+  run_built_value:
+    dependencies: [ 'flauncher' ]
+    builders:
+      drift_dev:
+        enabled: false
+      drift_dev|preparing_builder:
+        enabled: false
