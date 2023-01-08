@@ -39,14 +39,6 @@ Future<void> main() async {
   Paint.enableDithering = true;
   WebView.platform = SurfaceAndroidWebView();
 
-/*
-  FlutterError.onError = firebaseCrashlytics.recordFlutterError;
-  Isolate.current.addErrorListener(RawReceivePort((List<dynamic> pair) async => await firebaseCrashlytics.recordError(
-        pair.first,
-        pair.last as StackTrace,
-      )).sendPort);
-*/
-
   runZonedGuarded<void>(() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final imagePicker = ImagePicker();
