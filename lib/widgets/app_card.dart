@@ -228,12 +228,12 @@ class _AppCardState extends State<AppCard> with SingleTickerProviderStateMixin {
         widget.onMove(AxisDirection.right);
       } else if (key == LogicalKeyboardKey.arrowDown) {
         widget.onMove(AxisDirection.down);
-      } else if (key == null || _validationKeys.contains(key)) {
+      } else if (_validationKeys.contains(key)) {
         setState(() => _moving = false);
         widget.onMoveEnd();
       }
       return KeyEventResult.handled;
-    } else if (key == null || _validationKeys.contains(key)) {
+    } else if (_validationKeys.contains(key)) {
       context.read<AppsService>().launchApp(widget.application);
       return KeyEventResult.handled;
     }
