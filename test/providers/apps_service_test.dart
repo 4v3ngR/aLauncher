@@ -32,7 +32,7 @@ void main() {
       final database = MockaLauncherDatabase();
       when(channel.getApplications()).thenAnswer((_) => Future.value([
             {
-              'packageName': 'com.aboutblank.alauncher',
+              'packageName': 'org.mywire.alauncher',
               'name': 'aLauncher',
               'version': null,
               'banner': null,
@@ -40,7 +40,7 @@ void main() {
               'sideloaded': false
             },
             {
-              'packageName': 'com.aboutblank.alauncher.2',
+              'packageName': 'org.mywire.alauncher.2',
               'name': 'aLauncher 2',
               'version': '2.0.0',
               'banner': null,
@@ -50,7 +50,7 @@ void main() {
           ]));
       when(database.listApplications()).thenAnswer((_) => Future.value([
             fakeApp(
-              packageName: "com.aboutblank.alauncher",
+              packageName: "org.mywire.alauncher",
               name: "aLauncher",
               version: "1.0.0",
               banner: null,
@@ -58,7 +58,7 @@ void main() {
               sideloaded: false,
             ),
             fakeApp(
-              packageName: "com.aboutblank.alauncher.2",
+              packageName: "org.mywire.alauncher.2",
               name: "aLauncher 2",
               version: "2.0.0",
               banner: null,
@@ -82,7 +82,7 @@ void main() {
         database.listApplications(),
         database.persistApps([
           AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             version: "(unknown)",
             banner: Value(null),
@@ -90,7 +90,7 @@ void main() {
             sideloaded: Value(false),
           ),
           AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher.2",
+            packageName: "org.mywire.alauncher.2",
             name: "aLauncher 2",
             version: "2.0.0",
             banner: Value(null),
@@ -111,7 +111,7 @@ void main() {
         database.insertAppsCategories([
           AppsCategoriesCompanion.insert(
             categoryId: tvApplicationsCategory.id,
-            appPackageName: "com.aboutblank.alauncher",
+            appPackageName: "org.mywire.alauncher",
             order: 0,
           )
         ]),
@@ -121,7 +121,7 @@ void main() {
         database.insertAppsCategories([
           AppsCategoriesCompanion.insert(
             categoryId: nonTvApplicationsCategory.id,
-            appPackageName: "com.aboutblank.alauncher.2",
+            appPackageName: "org.mywire.alauncher.2",
             order: 0,
           )
         ]),
@@ -134,7 +134,7 @@ void main() {
       final database = MockaLauncherDatabase();
       when(channel.getApplications()).thenAnswer((_) => Future.value([
             {
-              'packageName': 'com.aboutblank.alauncher',
+              'packageName': 'org.mywire.alauncher',
               'name': 'aLauncher',
               'version': '2.0.0',
               'banner': null,
@@ -142,7 +142,7 @@ void main() {
               'sideloaded': false,
             },
             {
-              'packageName': 'com.aboutblank.alauncher.2',
+              'packageName': 'org.mywire.alauncher.2',
               'name': 'aLauncher 2',
               'version': '1.0.0',
               'banner': null,
@@ -153,7 +153,7 @@ void main() {
       when(channel.applicationExists("uninstalled.app")).thenAnswer((_) => Future.value(false));
       when(channel.applicationExists("not.uninstalled.app")).thenAnswer((_) => Future.value(true));
       when(database.listApplications()).thenAnswer((_) => Future.value([
-            fakeApp(packageName: "com.aboutblank.alauncher", name: "aLauncher", version: "1.0.0"),
+            fakeApp(packageName: "org.mywire.alauncher", name: "aLauncher", version: "1.0.0"),
             fakeApp(packageName: "uninstalled.app", name: "Uninstalled Application", version: "1.0.0"),
             fakeApp(packageName: "not.uninstalled.app", name: "Not Uninstalled Application", version: "1.0.0")
           ]));
@@ -167,7 +167,7 @@ void main() {
         database.listApplications(),
         database.persistApps([
           AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             version: "2.0.0",
             banner: Value(null),
@@ -175,7 +175,7 @@ void main() {
             sideloaded: Value(false),
           ),
           AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher.2",
+            packageName: "org.mywire.alauncher.2",
             name: "aLauncher 2",
             version: "1.0.0",
             banner: Value(null),

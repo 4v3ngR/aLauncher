@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.aboutblank.alauncher
+package org.mywire.alauncher
 
 import android.content.Intent
 import android.content.Intent.*
@@ -38,8 +38,8 @@ import io.flutter.plugin.common.MethodChannel
 import java.io.ByteArrayOutputStream
 import java.io.Serializable
 
-private const val METHOD_CHANNEL = "com.aboutblank.alauncher/method"
-private const val EVENT_CHANNEL = "com.aboutblank.alauncher/event"
+private const val METHOD_CHANNEL = "org.mywire.alauncher/method"
+private const val EVENT_CHANNEL = "org.mywire.alauncher/event"
 
 class MainActivity : FlutterActivity() {
     val launcherAppsCallbacks = ArrayList<LauncherApps.Callback>()

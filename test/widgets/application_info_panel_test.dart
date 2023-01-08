@@ -41,7 +41,7 @@ void main() {
   testWidgets("'Open' calls launchApp on AppsService", (tester) async {
     final appsService = MockAppsService();
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -60,7 +60,7 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -83,7 +83,7 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -107,7 +107,7 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -132,7 +132,7 @@ void main() {
     final appsService = MockAppsService();
     final category = fakeCategory(name: "Category 1", order: 0);
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,

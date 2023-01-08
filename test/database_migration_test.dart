@@ -41,7 +41,7 @@ void main() {
     final oldDb = v1.DatabaseAtV1(schema.newConnection().executor);
     await oldDb.into(oldDb.apps).insert(
           v1.AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             className: ".MainActivity",
             version: "0.0.1",
@@ -53,7 +53,7 @@ void main() {
           v1.CategoriesCompanion.insert(name: "Applications", order: 0),
         );
     await oldDb.into(oldDb.appsCategories).insert(
-          v1.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 0),
+          v1.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 0),
         );
     await oldDb.close();
 
@@ -65,7 +65,7 @@ void main() {
     final v5.AppsData app = await migratedDb.select(migratedDb.apps).getSingle();
     final v5.CategoriesData category = await migratedDb.select(migratedDb.categories).getSingle();
     final v5.AppsCategoriesData appsCategory = await migratedDb.select(migratedDb.appsCategories).getSingle();
-    expect(app.packageName, "com.aboutblank.alauncher");
+    expect(app.packageName, "org.mywire.alauncher");
     expect(app.name, "aLauncher");
     expect(app.version, "0.0.1");
     expect(app.icon, Uint8List.fromList([0x01]));
@@ -79,7 +79,7 @@ void main() {
     expect(category.type, 1);
     expect(category.columnsCount, 6);
     expect(category.rowHeight, 110);
-    expect(appsCategory.appPackageName, "com.aboutblank.alauncher");
+    expect(appsCategory.appPackageName, "org.mywire.alauncher");
     expect(appsCategory.categoryId, 1);
     expect(appsCategory.order, 0);
     await migratedDb.close();
@@ -91,7 +91,7 @@ void main() {
     final oldDb = v2.DatabaseAtV2(schema.newConnection().executor);
     await oldDb.into(oldDb.apps).insert(
           v2.AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             version: "0.0.1",
             icon: Value(Uint8List.fromList([0x01])),
@@ -102,7 +102,7 @@ void main() {
           v2.CategoriesCompanion.insert(name: "Applications", order: 0),
         );
     await oldDb.into(oldDb.appsCategories).insert(
-          v2.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 0),
+          v2.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 0),
         );
     await oldDb.close();
 
@@ -114,7 +114,7 @@ void main() {
     final v5.AppsData app = await migratedDb.select(migratedDb.apps).getSingle();
     final v5.CategoriesData category = await migratedDb.select(migratedDb.categories).getSingle();
     final v5.AppsCategoriesData appsCategory = await migratedDb.select(migratedDb.appsCategories).getSingle();
-    expect(app.packageName, "com.aboutblank.alauncher");
+    expect(app.packageName, "org.mywire.alauncher");
     expect(app.name, "aLauncher");
     expect(app.version, "0.0.1");
     expect(app.icon, Uint8List.fromList([0x01]));
@@ -128,7 +128,7 @@ void main() {
     expect(category.type, 1);
     expect(category.columnsCount, 6);
     expect(category.rowHeight, 110);
-    expect(appsCategory.appPackageName, "com.aboutblank.alauncher");
+    expect(appsCategory.appPackageName, "org.mywire.alauncher");
     expect(appsCategory.categoryId, 1);
     expect(appsCategory.order, 0);
     await migratedDb.close();
@@ -140,7 +140,7 @@ void main() {
     final oldDb = v3.DatabaseAtV3(schema.newConnection().executor);
     await oldDb.into(oldDb.apps).insert(
           v3.AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             version: "0.0.1",
             icon: Value(Uint8List.fromList([0x01])),
@@ -151,7 +151,7 @@ void main() {
           v3.CategoriesCompanion.insert(name: "Applications", order: 0),
         );
     await oldDb.into(oldDb.appsCategories).insert(
-          v3.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 0),
+          v3.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 0),
         );
     await oldDb.close();
 
@@ -163,7 +163,7 @@ void main() {
     final v5.AppsData app = await migratedDb.select(migratedDb.apps).getSingle();
     final v5.CategoriesData category = await migratedDb.select(migratedDb.categories).getSingle();
     final v5.AppsCategoriesData appsCategory = await migratedDb.select(migratedDb.appsCategories).getSingle();
-    expect(app.packageName, "com.aboutblank.alauncher");
+    expect(app.packageName, "org.mywire.alauncher");
     expect(app.name, "aLauncher");
     expect(app.version, "0.0.1");
     expect(app.icon, Uint8List.fromList([0x01]));
@@ -177,7 +177,7 @@ void main() {
     expect(category.type, 1);
     expect(category.columnsCount, 6);
     expect(category.rowHeight, 110);
-    expect(appsCategory.appPackageName, "com.aboutblank.alauncher");
+    expect(appsCategory.appPackageName, "org.mywire.alauncher");
     expect(appsCategory.categoryId, 1);
     expect(appsCategory.order, 0);
     await migratedDb.close();
@@ -189,7 +189,7 @@ void main() {
     final oldDb = v4.DatabaseAtV4(schema.newConnection().executor);
     await oldDb.into(oldDb.apps).insert(
           v4.AppsCompanion.insert(
-            packageName: "com.aboutblank.alauncher",
+            packageName: "org.mywire.alauncher",
             name: "aLauncher",
             version: "0.0.1",
             icon: Value(Uint8List.fromList([0x01])),
@@ -200,7 +200,7 @@ void main() {
           v4.CategoriesCompanion.insert(name: "Applications", type: Value(1), order: 0),
         );
     await oldDb.into(oldDb.appsCategories).insert(
-          v4.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 0),
+          v4.AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 0),
         );
     await oldDb.close();
 
@@ -212,7 +212,7 @@ void main() {
     final v5.AppsData app = await migratedDb.select(migratedDb.apps).getSingle();
     final v5.CategoriesData category = await migratedDb.select(migratedDb.categories).getSingle();
     final v5.AppsCategoriesData appsCategory = await migratedDb.select(migratedDb.appsCategories).getSingle();
-    expect(app.packageName, "com.aboutblank.alauncher");
+    expect(app.packageName, "org.mywire.alauncher");
     expect(app.name, "aLauncher");
     expect(app.version, "0.0.1");
     expect(app.icon, Uint8List.fromList([0x01]));
@@ -226,7 +226,7 @@ void main() {
     expect(category.type, 1);
     expect(category.columnsCount, 6);
     expect(category.rowHeight, 110);
-    expect(appsCategory.appPackageName, "com.aboutblank.alauncher");
+    expect(appsCategory.appPackageName, "org.mywire.alauncher");
     expect(appsCategory.categoryId, 1);
     expect(appsCategory.order, 0);
     await migratedDb.close();

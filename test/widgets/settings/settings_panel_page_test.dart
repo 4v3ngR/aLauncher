@@ -237,7 +237,7 @@ class _MockPackageInfoPlatform with MockPlatformInterfaceMixin implements Packag
   @override
   Future<PackageInfoData> getAll() async => PackageInfoData(
         appName: "aLauncher",
-        packageName: "com.aboutblank.alauncher",
+        packageName: "org.mywire.alauncher",
         version: "1.0.0",
         buildNumber: "1",
         buildSignature: "",

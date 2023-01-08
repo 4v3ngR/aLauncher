@@ -21,8 +21,8 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class aLauncherChannel {
-  static const _methodChannel = MethodChannel('com.aboutblank.alauncher/method');
-  static const _eventChannel = EventChannel('com.aboutblank.alauncher/event');
+  static const _methodChannel = MethodChannel('org.mywire.alauncher/method');
+  static const _eventChannel = EventChannel('org.mywire.alauncher/event');
 
   Future<List<dynamic>> getApplications() async => (await _methodChannel.invokeListMethod('getApplications'))!;
 

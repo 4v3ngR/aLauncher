@@ -39,7 +39,7 @@ import 'package:mockito/annotations.dart';
 void main() {}
 
 App fakeApp({
-  String packageName = "com.aboutblank.alauncher",
+  String packageName = "org.mywire.alauncher",
   String name = "aLauncher",
   String version = "1.0.0",
   Uint8List? banner,

@@ -56,7 +56,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.aboutblank.alauncher"
+        applicationId "org.mywire.alauncher"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()

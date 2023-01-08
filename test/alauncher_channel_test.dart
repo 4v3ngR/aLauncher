@@ -26,11 +26,11 @@ void main() {
   });
 
   test("getApplications", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "getApplications") {
         return [
-          {'packageName': 'com.aboutblank.alauncher'}
+          {'packageName': 'org.mywire.alauncher'}
         ];
       }
       fail("Unhandled method name");
@@ -40,12 +40,12 @@ void main() {
     final apps = await fLauncherChannel.getApplications();
 
     expect(apps, [
-      {'packageName': 'com.aboutblank.alauncher'}
+      {'packageName': 'org.mywire.alauncher'}
     ]);
   });
 
   test("launchApp", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "launchApp") {
@@ -56,13 +56,13 @@ void main() {
     });
     final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.launchApp("com.aboutblank.alauncher");
+    await fLauncherChannel.launchApp("org.mywire.alauncher");
 
-    expect(packageName, "com.aboutblank.alauncher");
+    expect(packageName, "org.mywire.alauncher");
   });
 
   test("openSettings", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     bool called = false;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "openSettings") {
@@ -79,7 +79,7 @@ void main() {
   });
 
   test("openAppInfo", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "openAppInfo") {
@@ -90,13 +90,13 @@ void main() {
     });
     final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.openAppInfo("com.aboutblank.alauncher");
+    await fLauncherChannel.openAppInfo("org.mywire.alauncher");
 
-    expect(packageName, "com.aboutblank.alauncher");
+    expect(packageName, "org.mywire.alauncher");
   });
 
   test("uninstallApp", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     String? packageName;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "uninstallApp") {
@@ -107,13 +107,13 @@ void main() {
     });
     final fLauncherChannel = aLauncherChannel();
 
-    await fLauncherChannel.uninstallApp("com.aboutblank.alauncher");
+    await fLauncherChannel.uninstallApp("org.mywire.alauncher");
 
-    expect(packageName, "com.aboutblank.alauncher");
+    expect(packageName, "org.mywire.alauncher");
   });
 
   test("isDefaultLauncher", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "isDefaultLauncher") {
         return true;
@@ -128,7 +128,7 @@ void main() {
   });
 
   test("checkForGetContentAvailability", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "checkForGetContentAvailability") {
         return true;
@@ -143,7 +143,7 @@ void main() {
   });
 
   test("startAmbientMode", () async {
-    final channel = MethodChannel('com.aboutblank.alauncher/method');
+    final channel = MethodChannel('org.mywire.alauncher/method');
     bool called = false;
     channel.setMockMethodCallHandler((call) async {
       if (call.method == "startAmbientMode") {

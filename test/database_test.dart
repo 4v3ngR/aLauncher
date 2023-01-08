@@ -32,12 +32,12 @@ void main() {
 
   test("listApplications", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
 
     final apps = await database.listApplications();
 
     expect(apps.length, 1);
-    expect(apps[0].packageName, "com.aboutblank.alauncher");
+    expect(apps[0].packageName, "org.mywire.alauncher");
     expect(apps[0].name, "aLauncher");
     expect(apps[0].version, "1.0.0");
     expect(apps[0].banner, null);
@@ -46,12 +46,12 @@ void main() {
 
   test("persistApps", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     await database.persistApps(
-        [AppsCompanion.insert(packageName: "com.aboutblank.alauncher", name: "aLauncher 2", version: "1.1.0")]);
+        [AppsCompanion.insert(packageName: "org.mywire.alauncher", name: "aLauncher 2", version: "1.1.0")]);
 
     final app = await database.customSelect("SELECT * FROM apps;").getSingle();
-    expect(app.read<String>("package_name"), "com.aboutblank.alauncher");
+    expect(app.read<String>("package_name"), "org.mywire.alauncher");
     expect(app.read<String>("name"), "aLauncher 2");
     expect(app.read<String>("version"), "1.1.0");
     expect(app.read<Uint8List?>("banner"), null);
@@ -60,11 +60,11 @@ void main() {
 
   test("updateApp", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon, hidden)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null, false);");
-    await database.updateApp("com.aboutblank.alauncher", AppsCompanion(hidden: Value(true)));
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null, false);");
+    await database.updateApp("org.mywire.alauncher", AppsCompanion(hidden: Value(true)));
 
     final app = await database.customSelect("SELECT * FROM apps;").getSingle();
-    expect(app.read<String>("package_name"), "com.aboutblank.alauncher");
+    expect(app.read<String>("package_name"), "org.mywire.alauncher");
     expect(app.read<String>("name"), "aLauncher");
     expect(app.read<String>("version"), "1.0.0");
     expect(app.read<Uint8List?>("banner"), null);
@@ -74,14 +74,14 @@ void main() {
 
   test("deleteApps", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher.2', 'aLauncher 2', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher.2', 'aLauncher 2', '1.0.0', null, null);");
 
-    await database.deleteApps(["com.aboutblank.alauncher"]);
+    await database.deleteApps(["org.mywire.alauncher"]);
 
     final app = await database.customSelect("SELECT * FROM apps;").getSingle();
-    expect(app.read<String>("package_name"), "com.aboutblank.alauncher.2");
+    expect(app.read<String>("package_name"), "org.mywire.alauncher.2");
   });
 
   test("insertCategory", () async {
@@ -94,15 +94,15 @@ void main() {
 
   test("deleteCategory", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order') VALUES('Test', 2);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher', 0);");
+        " VALUES($categoryId, 'org.mywire.alauncher', 0);");
 
     await database.deleteCategory(categoryId);
 
     final app = await database.customSelect("SELECT * FROM apps;").getSingle();
-    expect(app.read<String>("package_name"), "com.aboutblank.alauncher");
+    expect(app.read<String>("package_name"), "org.mywire.alauncher");
     final appsCategories = await database.customSelect("SELECT * FROM apps_categories;").get();
     expect(appsCategories, isEmpty);
     final categories = await database.customSelect("SELECT * FROM categories c ORDER BY c.'order' ASC;").get();
@@ -137,15 +137,15 @@ void main() {
 
   test("deleteAppCategory", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order') VALUES('Test', 2);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher', 0);");
+        " VALUES($categoryId, 'org.mywire.alauncher', 0);");
 
-    await database.deleteAppCategory(categoryId, "com.aboutblank.alauncher");
+    await database.deleteAppCategory(categoryId, "org.mywire.alauncher");
 
     final app = await database.customSelect("SELECT * FROM apps;").getSingle();
-    expect(app.read<String>("package_name"), "com.aboutblank.alauncher");
+    expect(app.read<String>("package_name"), "org.mywire.alauncher");
     final appsCategories = await database.customSelect("SELECT * FROM apps_categories;").get();
     expect(appsCategories, isEmpty);
     final categories = await database.customSelect("SELECT * FROM categories c ORDER BY c.'order' ASC;").get();
@@ -155,67 +155,67 @@ void main() {
 
   test("insertAppsCategories", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order')"
         " VALUES('Test', 2);");
     await database.insertAppsCategories([
-      AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 0),
+      AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 0),
     ]);
 
     final appCategory = await database.customSelect("SELECT * FROM apps_categories;").getSingle();
     expect(appCategory.read<int>("category_id"), categoryId);
-    expect(appCategory.read<String>("app_package_name"), "com.aboutblank.alauncher");
+    expect(appCategory.read<String>("app_package_name"), "org.mywire.alauncher");
     expect(appCategory.read<int>("order"), 0);
   });
 
   test("replaceAppsCategories", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order') VALUES('Test', 2);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher', 0);");
+        " VALUES($categoryId, 'org.mywire.alauncher', 0);");
 
     await database.replaceAppsCategories(
-        [AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "com.aboutblank.alauncher", order: 1)]);
+        [AppsCategoriesCompanion.insert(categoryId: categoryId, appPackageName: "org.mywire.alauncher", order: 1)]);
 
     final appCategory = await database.customSelect("SELECT * FROM apps_categories;").getSingle();
     expect(appCategory.read<int>("category_id"), categoryId);
-    expect(appCategory.read<String>("app_package_name"), "com.aboutblank.alauncher");
+    expect(appCategory.read<String>("app_package_name"), "org.mywire.alauncher");
     expect(appCategory.read<int>("order"), 1);
   });
 
   test("listCategoriesWithApps", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher.2', 'aLauncher 2', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher.2', 'aLauncher 2', '1.0.0', null, null);");
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon, hidden)"
-        " VALUES('com.aboutblank.alauncher.3', 'aLauncher 3', '1.0.0', null, null, true);");
+        " VALUES('org.mywire.alauncher.3', 'aLauncher 3', '1.0.0', null, null, true);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order') VALUES('Test', 2);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher', 1);");
+        " VALUES($categoryId, 'org.mywire.alauncher', 1);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher.2', 0);");
+        " VALUES($categoryId, 'org.mywire.alauncher.2', 0);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher.3', 2);");
+        " VALUES($categoryId, 'org.mywire.alauncher.3', 2);");
 
     final categoriesWithApps = await database.listCategoriesWithVisibleApps();
 
     expect(categoriesWithApps.length, 1);
     expect(categoriesWithApps[0].category.name, "Test");
     expect(categoriesWithApps[0].applications.length, 2);
-    expect(categoriesWithApps[0].applications[0].packageName, "com.aboutblank.alauncher.2");
+    expect(categoriesWithApps[0].applications[0].packageName, "org.mywire.alauncher.2");
     expect(categoriesWithApps[0].applications[0].name, "aLauncher 2");
-    expect(categoriesWithApps[0].applications[1].packageName, "com.aboutblank.alauncher");
+    expect(categoriesWithApps[0].applications[1].packageName, "org.mywire.alauncher");
     expect(categoriesWithApps[0].applications[1].name, "aLauncher");
   });
 
   test("nextAppCategoryOrder", () async {
     await database.customInsert("INSERT INTO apps(package_name, name, version, banner, icon)"
-        " VALUES('com.aboutblank.alauncher', 'aLauncher', '1.0.0', null, null);");
+        " VALUES('org.mywire.alauncher', 'aLauncher', '1.0.0', null, null);");
     final categoryId = await database.customInsert("INSERT INTO categories(name, 'order') VALUES('Test', 2);");
     await database.customInsert("INSERT INTO apps_categories(category_id, app_package_name, 'order')"
-        " VALUES($categoryId, 'com.aboutblank.alauncher', 1);");
+        " VALUES($categoryId, 'org.mywire.alauncher', 1);");
 
     final index = await database.nextAppCategoryOrder(categoryId);
 

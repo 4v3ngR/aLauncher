@@ -59,7 +59,7 @@ void main() {
     when(appsService.categoriesWithApps).thenReturn([
       CategoryWithApps(favoritesCategory, [
         fakeApp(
-          packageName: "com.aboutblank.alauncher.1",
+          packageName: "org.mywire.alauncher.1",
           name: "aLauncher 1",
           version: "1.0.0",
           banner: kTransparentImage,
@@ -68,7 +68,7 @@ void main() {
       ]),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "com.aboutblank.alauncher.2",
+          packageName: "org.mywire.alauncher.2",
           name: "aLauncher 2",
           version: "2.0.0",
           banner: kTransparentImage,
@@ -83,9 +83,9 @@ void main() {
     expect(find.text("Applications"), findsOneWidget);
     expect(find.text("Favorites"), findsOneWidget);
     expect(find.byType(AppsGrid), findsOneWidget);
-    expect(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher.2")), findsOneWidget);
+    expect(find.byKey(Key("${applicationsCategory.id}-org.mywire.alauncher.2")), findsOneWidget);
     expect(find.byType(CategoryRow), findsOneWidget);
-    expect(find.byKey(Key("${favoritesCategory.id}-com.aboutblank.alauncher.1")), findsOneWidget);
+    expect(find.byKey(Key("${favoritesCategory.id}-org.mywire.alauncher.1")), findsOneWidget);
     expect(tester.widget(find.byKey(Key("background"))), isA<Container>());
   });
 
@@ -177,7 +177,7 @@ void main() {
     when(wallpaperService.gradient).thenReturn(aLauncherGradients.greatWhale);
     when(settingsService.use24HourTimeFormat).thenReturn(false);
     final app = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -208,7 +208,7 @@ void main() {
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "com.aboutblank.alauncher",
+          packageName: "org.mywire.alauncher",
           name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
@@ -218,7 +218,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-org.mywire.alauncher")));
     await tester.pump();
 
     expect(find.byType(ApplicationInfoPanel), findsOneWidget);
@@ -237,14 +237,14 @@ void main() {
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "com.aboutblank.alauncher",
+          packageName: "org.mywire.alauncher",
           name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
         ),
         fakeApp(
-          packageName: "com.aboutblank.alauncher.2",
+          packageName: "org.mywire.alauncher.2",
           name: "aLauncher 2",
           version: "1.0.0",
           banner: kTransparentImage,
@@ -254,7 +254,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-org.mywire.alauncher")));
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
@@ -281,14 +281,14 @@ void main() {
       CategoryWithApps(fakeCategory(name: "Favorites", order: 0), []),
       CategoryWithApps(applicationsCategory, [
         fakeApp(
-          packageName: "com.aboutblank.alauncher",
+          packageName: "org.mywire.alauncher",
           name: "aLauncher",
           version: "1.0.0",
           banner: kTransparentImage,
           icon: kTransparentImage,
         ),
         fakeApp(
-          packageName: "com.aboutblank.alauncher.2",
+          packageName: "org.mywire.alauncher.2",
           name: "aLauncher 2",
           version: "1.0.0",
           banner: kTransparentImage,
@@ -298,7 +298,7 @@ void main() {
     ]);
     await _pumpWidgetWithProviders(tester, wallpaperService, appsService, settingsService);
 
-    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-com.aboutblank.alauncher")));
+    await tester.longPress(find.byKey(Key("${applicationsCategory.id}-org.mywire.alauncher")));
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
     await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);

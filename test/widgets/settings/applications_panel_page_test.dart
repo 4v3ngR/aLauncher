@@ -44,7 +44,7 @@ void main() {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "com.aboutblank.alauncher",
+        packageName: "org.mywire.alauncher",
         name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: false,
@@ -62,7 +62,7 @@ void main() {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "com.aboutblank.alauncher",
+        packageName: "org.mywire.alauncher",
         name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: true,
@@ -85,7 +85,7 @@ void main() {
     final appsService = MockAppsService();
     when(appsService.applications).thenReturn([
       fakeApp(
-        packageName: "com.aboutblank.alauncher",
+        packageName: "org.mywire.alauncher",
         name: "aLauncher",
         icon: kTransparentImage,
         sideloaded: false,
@@ -108,7 +108,7 @@ void main() {
   testWidgets("'Add' opens AddToCategoryDialog", (tester) async {
     final appsService = MockAppsService();
     final application = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
@@ -129,7 +129,7 @@ void main() {
   testWidgets("'Info' opens ApplicationInfoPanel", (tester) async {
     final appsService = MockAppsService();
     final application = fakeApp(
-      packageName: "com.aboutblank.alauncher",
+      packageName: "org.mywire.alauncher",
       name: "aLauncher",
       version: "1.0.0",
       banner: kTransparentImage,
