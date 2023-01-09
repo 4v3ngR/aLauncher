@@ -28,7 +28,7 @@ This repo is a fork of https://gitlab.com/flauncher/flauncher
 ## Screenshots
 |  |  |  |
 |--|--|--|
-| ![](screenshots/Screenshot_1624378896.png) | ![](screenshots/Screenshot_1624378921.png) | ![](screenshots/Screenshot_1624378938.png) |
+| ![](screenshots/screenshot_1.png) | ![](screenshots/screenshot_2.png) | ![](screenshots/screenshot_3.png) |
 
 ## Set aLauncher as default launcher
 
