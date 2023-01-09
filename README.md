@@ -66,3 +66,13 @@ On Chromecast with Google TV (maybe others), the "YouTube" remote button will st
 Because Android's `WallpaperManager` is not available on some Android TV devices, aLauncher implements its own wallpaper management method.
 
 Please note that changing wallpaper requires a file explorer to be installed on the device in order to pick a file.
+
+## Creating a blank category row
+- Create a new category
+- Give it any name, but ensure the first character is an underscore `_`
+- Select "row" as the type
+- Adjust the height as needed
+
+## Support Étienne Fesser... buy him a coffee
+
+<a href="https://www.buymeacoffee.com/etienn01" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Étienne Fesser A Coffee" width="200"></a>
