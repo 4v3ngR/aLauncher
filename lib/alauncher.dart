@@ -29,6 +29,7 @@ import 'package:alauncher/widgets/settings/settings_panel.dart';
 import 'package:alauncher/widgets/time_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_no_internet_widget/flutter_no_internet_widget.dart';
 
 class aLauncher extends StatelessWidget {
   @override
@@ -80,6 +81,24 @@ class aLauncher extends StatelessWidget {
 
   AppBar _appBar(BuildContext context) => AppBar(
         actions: [
+          Padding(
+            padding: EdgeInsets.only(left: 0, right: 16),
+            child: Align(
+              alignment: Alignment.center,
+              child: InternetWidget(
+                online: Icon(
+                  Icons.wifi_outlined,
+                  shadows: <Shadow>[Shadow(color: Colors.black54, blurRadius: 15.0)],
+                  color: Colors.white,
+                ),
+                offline: Icon(
+                  Icons.wifi_off_outlined,
+                  shadows: <Shadow>[Shadow(color: Colors.black54, blurRadius: 15.0)],
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
