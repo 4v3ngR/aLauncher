@@ -27,6 +27,7 @@ import 'package:alauncher/widgets/apps_grid.dart';
 import 'package:alauncher/widgets/category_row.dart';
 import 'package:alauncher/widgets/settings/settings_panel.dart';
 import 'package:alauncher/widgets/time_widget.dart';
+import 'package:alauncher/widgets/wifi_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -80,6 +81,13 @@ class aLauncher extends StatelessWidget {
 
   AppBar _appBar(BuildContext context) => AppBar(
         actions: [
+          Padding(
+            padding: EdgeInsets.only(left: 0, right: 16),
+            child: Align(
+              alignment: Alignment.center,
+              child: WifiWidget(),
+            ),
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
